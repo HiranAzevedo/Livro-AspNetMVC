@@ -11,13 +11,12 @@ namespace PrimeiraAplicacao.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Minha primeira aplicação com ASP.NET MVC";
-
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your app description page.";
+            ViewBag.Message = "Your application description page.";
 
             return View();
         }
