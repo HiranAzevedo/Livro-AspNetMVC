@@ -8,14 +8,14 @@ namespace CadeMeuMedico.Models
 {
     [MetadataType(typeof(UsuarioMetadado))]
     public partial class Usuario
-    {
-
+    { 
+    
     }
 
     public class UsuarioMetadado
     {
-        [Required(ErrorMessage = "Obrigatório informar o Nome")]
-        [StringLength(80, ErrorMessage = "O Nome deve possuir no máximo 80 caracteres")]
+        [Required(ErrorMessage="Obrigatório informar o Nome")]
+        [StringLength(80, ErrorMessage="O Nome deve possuir no máximo 80 caracteres")]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar o Login")]

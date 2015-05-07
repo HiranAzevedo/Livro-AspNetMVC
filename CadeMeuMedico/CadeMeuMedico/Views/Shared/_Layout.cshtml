@@ -22,6 +22,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
+                    <li>@Html.ActionLink("Médicos", "Index","Medicos")</li>
                 </ul>
             </div>
         </div>        
@@ -33,6 +34,6 @@
 
     <script src="@Url.Content("~/Scripts/jquery-2.1.3.min.js")"></script>
     <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
-    @RenderSection("script", required: false);
+    @RenderSection("scripts", required: false);
 </body>
 </html>

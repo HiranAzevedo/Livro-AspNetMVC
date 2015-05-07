@@ -10,13 +10,12 @@ namespace CadeMeuMedico.Controllers
     {
         public ActionResult BomDia()
         {
-            return Content("Bom dia");
+            return Content("Bom dia... hoje você acordou cedo!");
         }
 
         public ActionResult BoaTarde()
         {
-            return Content("Boa tarde");
+            return Content("Boa tarde... não vá dormir na mesa do trabalho!");
         }
-       
     }
 }
