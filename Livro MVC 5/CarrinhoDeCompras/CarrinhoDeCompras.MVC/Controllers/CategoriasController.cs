@@ -7,13 +7,13 @@ namespace CarrinhoDeCompras.MVC.Controllers
 {
     public class CategoriasController : Controller
     {
-        // GET: Categorias
+        [HttpGet]
         public ActionResult Index()
         {
-            return View(categorias);
+            return View(categorias.OrderBy(x => x.Nome));
         }
 
-        //GET: Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -26,6 +26,42 @@ namespace CarrinhoDeCompras.MVC.Controllers
             categoria.CategoriaId = categorias.Select(x => x.CategoriaId).Max() + 1;
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet]
+        public ActionResult Edit(long id)
+        {
+            return View(categorias.FirstOrDefault(x => x.CategoriaId == id));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Edit(Categoria categoria)
+        {
+            categorias.Remove(categorias.FirstOrDefault(x => x.CategoriaId == categoria.CategoriaId));
+            categorias.Add(categoria);
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public ActionResult Details(long id)
+        {
+            return View(categorias.FirstOrDefault(x => x.CategoriaId == id));
+        }
+
+        [HttpGet]
+        public ActionResult Delete(long id)
+        {
+            return View(categorias.FirstOrDefault(x => x.CategoriaId == id));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Delete(Categoria categoria)
+        {
+            categorias.Remove(categorias.FirstOrDefault(x => x.CategoriaId == categoria.CategoriaId));
+            return RedirectToAction(nameof(Index));
+        }
+
+
 
         //TODO retirar depois
         private static IList<Categoria> categorias =
